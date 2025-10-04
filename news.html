@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>News - SOMA Arct</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="nav-header">
+        <div class="nav-wrap">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/Logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="nav-links" role="navigation" aria-label="Main Navigation">
+                    <a href="aboutus2.html">ABOUT US</a>
+                    <a href="news.html">NEWS</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+            </nav>
+        </div>
+
+        <section class="news-section">
+            <!-- Navigation -->
+            <div class="news-nav">
+                <button class="active" data-filter="all">ALL NEWS</button>
+                <button data-filter="recognition">RECOGNITION</button>
+                <button data-filter="event">EVENT</button>
+                <button data-filter="awards">AWARDS</button>
+                <button data-filter="talkshow">TALKSHOW</button>
+            </div>
+
+            <!-- Content -->
+            <div class="news-grid">
+
+                <!-- Example cards -->
+                <div class="news-card" data-category="event">
+                    <img src="https://picsum.photos/id/1011/400/300" alt="">
+                    <div class="news-content">
+                        <div class="news-date">19/08/2025</div>
+                        <div class="news-category">EVENT</div>
+                        <div class="news-title">K-Thengono Design Studio Showcases Joglo Reimagined</div>
+                        <div class="news-read">READ MORE</div>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="awards">
+                    <img src="https://picsum.photos/id/1012/400/300" alt="">
+                    <div class="news-content">
+                        <div class="news-date">05/07/2025</div>
+                        <div class="news-category">AWARDS</div>
+                        <div class="news-title">Skylit House has been awarded the “Premium House” category</div>
+                        <div class="news-read">READ MORE</div>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="talkshow">
+                    <img src="https://picsum.photos/id/1013/400/300" alt="">
+                    <div class="news-content">
+                        <div class="news-date">11/05/2025</div>
+                        <div class="news-category">TALKSHOW</div>
+                        <div class="news-title">Our studio shares insights at OMAH Library’s Muda session</div>
+                        <div class="news-read">READ MORE</div>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="recognition">
+                    <img src="https://picsum.photos/id/1014/400/300" alt="">
+                    <div class="news-content">
+                        <div class="news-date">02/03/2025</div>
+                        <div class="news-category">RECOGNITION</div>
+                        <div class="news-title">Our latest design receives recognition for cultural innovation</div>
+                        <div class="news-read">READ MORE</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <table class="footer-table">
+                <tr>
+                    <td rowspan="2"><img src="img/Logo.png" alt="Logo" class="footer-img"></td>
+                    <td>Lorem ipsum dolor sit amet.<br />Consectetur adipiscing elit.</td>
+                </tr>
+                <tr>
+                    <td>Sed do eiusmod tempor incididunt.<br />Ut labore et dolore magna aliqua.</td>
+                </tr>
+                <tr>
+                    <td>Ut enim ad minim veniam.<br />Quis nostrud exercitation ullamco.</td>
+                    <td>Duis aute irure dolor.<br />In reprehenderit in voluptate.</td>
+                </tr>
+                <tr>
+                    <td>Excepteur sint occaecat.<br />Cupidatat non proident.</td>
+                    <td>Sunt in culpa qui officia.<br />Deserunt mollit anim id est laborum.</td>
+                </tr>
+            </table>
+        </footer>
+        <script src="data.js"></script>
+</body>
+
+</html>

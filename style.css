@@ -1,0 +1,860 @@
+* {
+  box-sizing: border-box;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #000
+}
+
+/* Navigasi */
+.nav-header {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+/* Header / slider full height */
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .35s ease;
+  will-change: transform
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr)
+}
+
+.slide div {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain
+}
+
+.slide-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0.5rem;
+  width: 200px;
+  height: 200px
+}
+
+.slide-item span {
+  margin-top: auto;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 1rem;
+  text-align: center;
+  display: block;
+}
+
+/* Navigation bar fixed */
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  z-index: 100;
+  background: #24336A;
+  backdrop-filter: blur(4px)
+}
+
+nav {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: .6px
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  opacity: .95;
+  color: white;
+}
+
+.nav-links a:hover {
+  background: rgba(0, 0, 0, 0.06)
+}
+
+/* Hero content (text block) */
+.hero-content {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 2.5rem;
+  z-index: 9;
+  max-width: 900px
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  line-height: 1.05;
+  color: black;
+}
+
+.hero-content p {
+  margin: .5rem 0 0;
+  font-size: clamp(.95rem, 1.5vw, 1.2rem);
+  opacity: .95;
+  color: black;
+}
+
+/* Controls */
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 11;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  /* biar invisible area tidak menghalangi */
+}
+
+.hero:hover .controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ctrl-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.ctrl-btn {
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+
+
+/* Section Visi Misi */
+.visimisi {
+  position: relative;
+  height: 200vh;
+  /* 2x tinggi layar */
+  background: url('img/Content1.png') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Gambar overlay di atas teks */
+.visimisi-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/Content1.png') center/cover no-repeat;
+  z-index: 2;
+  /* di atas teks */
+  pointer-events: none;
+  /* biar gambar tidak menghalangi scroll/click */
+}
+
+.visimisi-content {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 25mm 20mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+}
+
+.visimisi-content p {
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  line-height: 1.4;
+  max-width: 1000px;
+}
+
+/* Konten section */
+.content-section {
+  padding: 15mm;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15mm
+}
+
+.content-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px
+}
+
+.content-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px
+}
+
+/* Membuat baris 1 & 2 persegi, baris 3 & 4 menyesuaikan */
+.content-section .normal {
+  aspect-ratio: 1/1
+}
+
+.content-section .wide {
+  grid-column: span 2;
+  aspect-ratio: 2/1
+}
+
+/* Overlay popup */
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -15mm;
+  height: 15mm;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  transition: bottom 0.3s ease;
+  padding: 5mm;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+.content-item:hover .overlay {
+  bottom: 0
+}
+
+/* Teks untuk normal (baris 1&2) */
+.normal .overlay {
+  align-items: flex-start;
+  text-align: left
+}
+
+.normal .overlay strong {
+  display: block;
+  margin-bottom: 0.25rem
+}
+
+/* Teks untuk wide (baris 3&4) */
+.wide .overlay {
+  align-items: center;
+  text-align: center;
+  padding: 0
+}
+
+.wide .overlay strong {
+  display: block;
+  margin-bottom: 0.25rem
+}
+
+/* Footer */
+footer {
+  background: #24336A;
+  padding: 2rem
+}
+
+.footer-table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+.footer-table td {
+  border: none;
+  vertical-align: middle;
+  padding: 1rem;
+  text-align: left;
+  color: white;
+}
+
+.footer-img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  display: block
+}
+
+/* Section Reels */
+.reels-section {
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 15mm 15mm 15mm;
+  /* padding kiri, kanan, bawah */
+  text-align: center;
+}
+
+.reels-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.reel {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.instagram-link {
+  margin-top: 10mm;
+}
+
+.instagram-link a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Section pertama */
+.about-section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  margin-top: 55px;
+  overflow: hidden;
+  /* offset dari navbar */
+}
+
+.about-section1 .text {
+  padding: 7mm 10mm;
+  max-width: 900px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.about-section1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Section putih kosong */
+.blank-section {
+  height: 20mm;
+  background: #fff;
+}
+
+/* Section putih kosong */
+.blank-section-1 {
+  height: 1000mm;
+  background: #fff;
+}
+
+/* Section dengan padding hanya kanan-kiri */
+.about-section2 {
+  padding: 0 30mm;
+}
+
+/* Grid 2 kolom: 60% - 40% dengan jarak antar kolom 10mm */
+.about-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  column-gap: 10mm;
+  min-height: 100vh;
+}
+
+/* Kolom kiri */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10mm;
+}
+
+/* ========== Sticky Behavior ========== */
+/* General sticky untuk semua sel di kolom kiri */
+.sticky-general1 {
+  position: sticky;
+  top: 144px;
+  /* menempel selama scroll dalam section */
+  z-index: 1;
+  padding-bottom: 0mm;
+}
+
+/* General sticky untuk semua sel di kolom kanan */
+.sticky-general2 {
+  position: sticky;
+  top: 394px;
+  /* menempel selama scroll dalam section */
+  text-align: top;
+  /* latar putih agar jelas */
+  z-index: 2;
+}
+
+/* Sel pertama (judul spesial) */
+.sticky-title {
+  position: fixed;
+  top: 84px;
+  /* selalu ikut scroll sampai section berikutnya */
+  font-size: 10mm;
+  left: 30px;
+  font-weight: 900;
+  text-align: left;
+  display: inline-block;
+  /* border mengikuti ukuran teks */
+  width: fit-content;
+  z-index: 2;
+  /* lebih tinggi agar tidak ketutup sel lain */
+}
+
+/* Sel pertama (judul not spesial) */
+.sticky-title1 {
+  position: sticky;
+  top: 84px;
+  /* selalu ikut scroll sampai section berikutnya */
+  font-size: 10mm;
+  left: 30px;
+  font-weight: 900;
+  text-align: left;
+  display: inline-block;
+  /* border mengikuti ukuran teks */
+  width: fit-content;
+  color: white;
+  z-index: 1;
+  /* lebih tinggi agar tidak ketutup sel lain */
+}
+
+/* General text styling untuk sel kiri */
+.left-text {
+  font-size: 7mm;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 0mm;
+}
+
+.right-text {
+  text-align: right;
+  padding-top: 20mm;
+}
+
+.small-text {
+  font-size: 5mm;
+  font-weight: 400;
+}
+
+/* Kolom kanan dengan gambar penuh */
+.right-col {
+  display: flex;
+}
+
+.right-col img {
+  width: 100%;
+  height: calc(100vh - var(--nav-height, 0px));
+  /* isi tinggi viewport dikurangi navigasi */
+  object-fit: cover;
+  display: block;
+}
+
+.center-text-section {
+  padding-top: 30mm;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center-text-section .text-box p {
+  font-size: 10mm;
+  margin: 5mm 0;
+  font-weight: 500;
+}
+
+/* Underline hanya untuk kata tertentu */
+.underline {
+  text-decoration: underline;
+}
+
+/* Section Infinity */
+.infinite-carousel {
+  padding: 35mm 0;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+
+  /* efek fade kiri & kanan */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* Track bergerak */
+.carousel-track {
+  display: flex;
+  gap: 55mm;
+  /* jarak antar gambar */
+  animation: scroll-left 20s linear infinite;
+  /* diperpanjang biar smooth */
+}
+
+/* Gambar */
+.carousel-track img {
+  width: 40mm;
+  height: 50mm;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Animasi scroll */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Last section */
+.last-section {
+  padding: 30mm;
+  background: #fff;
+}
+
+/* Tabel utama */
+.last-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Kolom kiri */
+.last-left {
+  width: 50%;
+  padding-right: 20mm;
+  vertical-align: top;
+}
+
+.last-left img {
+  width: 100%;
+  height: 20cm;
+  object-fit: cover;
+  display: block;
+}
+
+/* Kolom kanan */
+.last-right {
+  width: 50%;
+  vertical-align: top;
+}
+
+/* Caption "Founder" */
+.caption {
+  font-size: 10mm;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 15mm;
+}
+
+/* Deskripsi */
+.description {
+  font-size: 6.5mm;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Career Section */
+.career-section {
+  border-top: 1px solid #000;
+  width: 80%;
+  margin: 0 auto;
+  /* pusatkan horizontal */
+  padding: 20mm;
+}
+
+.career-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  /* kiri sempit, kanan lebih lebar */
+  gap: 20mm;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10mm;
+}
+
+.career-left p {
+  font-size: 4mm;
+  font-weight: 500;
+  letter-spacing: 1mm;
+  text-transform: uppercase;
+}
+
+.career-right p {
+  font-size: 4mm;
+  line-height: 1.6;
+  margin: 0 0 6mm 0;
+}
+
+.career-right a {
+  font-size: 4mm;
+  color: #000;
+  text-decoration: underline;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+}
+
+/* ====== SECTION WRAPPER ====== */
+.news-section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30mm 0;
+}
+
+/* ====== NAVIGATION FILTER ====== */
+.news-nav {
+  display: flex;
+  justify-content: left;
+  gap: 20mm;
+  border-bottom: 1px solid #000;
+  margin-bottom: 10mm;
+  padding-bottom: 5mm;
+}
+
+.news-nav button {
+  background: none;
+  border: none;
+  font-size: 5mm;
+  cursor: pointer;
+  color: #555;
+  position: relative;
+}
+
+.news-nav button.active {
+  color: #000;
+  font-weight: bold;
+}
+
+.news-nav button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2mm;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #000;
+}
+
+/* ====== GRID CONTENT ====== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20mm;
+}
+
+/* ====== CARD STYLE ====== */
+.news-card {
+  display: flex;
+  gap: 10mm;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  border-color: #ddd;
+}
+
+.news-card img {
+  width: 60mm;
+  height: 40mm;
+  object-fit: cover;
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-category {
+  font-size: 3.5mm;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 3mm;
+}
+
+.news-title {
+  font-size: 5mm;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 5mm;
+}
+
+.news-date {
+  font-size: 3.5mm;
+  color: #777;
+  margin-bottom: 5mm;
+}
+
+.news-read {
+  font-size: 3.5mm;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 800px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .news-card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.contact-section {
+  width: 70%;
+  margin: 0 auto;
+  padding: 30mm 0;
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 12mm;
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3mm;
+}
+
+.form-group label {
+  width: 25mm;
+  color: #888;
+  font-size: 10pt;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 11pt;
+  padding: 5px 10px;
+}
+
+.send-btn {
+  display: block;
+  margin: 20mm auto 0;
+  background: none;
+  border: none;
+  font-size: 12pt;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+}
+
+.send-btn:hover {
+  opacity: 0.6;
+}
+
